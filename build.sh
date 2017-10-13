@@ -11,4 +11,4 @@ fi
 export ARCH=$1
 export BASES=$PWD/bases
 
-make -j3
+make

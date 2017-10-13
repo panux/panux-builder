@@ -1,2 +1,2 @@
-ADD scripts/* /scripts
+ADD scripts/* /scripts/
 RUN /scripts/install.sh make
