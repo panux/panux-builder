@@ -1,0 +1,5 @@
+RUN apk add --no-cache git make bash curl wget go musl-dev gcc
+
+ADD preproc /bin/preproc
+
+ENTRYPOINT ["/bin/preproc"]
