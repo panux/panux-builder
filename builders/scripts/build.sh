@@ -2,26 +2,35 @@
 set -e
 
 # Validate arguments
-if [ $# -lt 2 ]; then
+if [ $# -lt 3 ]; then
     echo Missing arguments
     exit 1
 fi
-if [ ! -e $1 ]; then
-    echo Source file "$1" does not exist
-    exit 2
-fi
-if [ ! -d $2 ]; then
-    if [ -e $2 ]; then
-        echo Destination directory "$2" is not a directory
+if [ ! -d $1 ]; then
+    if [ -e $1 ]; then
+        echo Source directory "$1" is not a directory
         exit 3
     fi
-    echo Destination directory "$2" does not exist
+    echo Source directory "$1" does not exist
+    exit 2
+fi
+if [ ! -e $2 ]; then
+    echo Makefile "$2" does not exist
+    exit 2
+fi
+if [ ! -d $3 ]; then
+    if [ -e $3 ]; then
+        echo Destination directory "$3" is not a directory
+        exit 3
+    fi
+    echo Destination directory "$3" does not exist
     exit 2
 fi
 
 BD=$(mktemp -d)
 
-tar -xf $1 -C $BD
+cp -r $1 $BD/src
+cp $2 $BD/Makefile
 
 if ! make -j6 -C $BD; then
     echo "Build failed. Attempting to upload to transfer.sh"
@@ -33,4 +42,4 @@ if ! make -j6 -C $BD; then
     exit 4
 fi
 
-cp $BD/tars/*.tar.gz $2
+cp $BD/tars/*.tar.gz $3
