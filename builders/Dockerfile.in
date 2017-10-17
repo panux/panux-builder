@@ -1,3 +1,4 @@
 ADD scripts/* /scripts/
 RUN /scripts/install.sh make
+RUN mkdir /build
 ENTRYPOINT ["/scripts/build.sh"]
