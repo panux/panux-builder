@@ -1,2 +1,3 @@
 ADD scripts/* /scripts/
 RUN /scripts/install.sh make
+ENTRYPOINT ["/scripts/build.sh"]
