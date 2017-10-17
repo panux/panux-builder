@@ -1,4 +1,4 @@
-BUILDERS = alpine
+BUILDERS = alpine panux
 
 all: $(BUILDERS)
 
