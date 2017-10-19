@@ -1,0 +1,1 @@
+RUN /scripts/install.sh ca-certificates && update-ca-certificates
