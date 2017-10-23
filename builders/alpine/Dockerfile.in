@@ -1,1 +1,2 @@
 RUN /scripts/install.sh git make bash wget curl go musl-dev gcc ca-certificates wget && update-ca-certificates
+RUN git clone https://github.com/panux/fakename /fakename && make -C /fakename install && rm /bin/uname && ln -s /usr/bin/uname /bin/uname
