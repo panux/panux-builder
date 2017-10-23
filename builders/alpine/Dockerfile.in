@@ -1,1 +1,1 @@
-RUN /scripts/install.sh ca-certificates && update-ca-certificates
+RUN /scripts/install.sh ca-certificates gcc musl-dev && update-ca-certificates
