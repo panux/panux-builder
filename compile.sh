@@ -11,6 +11,8 @@ if [ ! -e /var/run/docker.sock ]; then
 fi
 
 echo "Starting build!"
+echo "Pulling docker base images"
+for i in $(ls bases); do docker pull $(cat bases/$i | awk '{print $2;}'); done
 echo "Building docker container to build builder"
 chmod 700 build.sh || fail "Failed to set permissions on build.sh"
 docker build -f Dockerfile.compile -t panux/builderbuilder . || fail "Failed to build docker container to run build in"
