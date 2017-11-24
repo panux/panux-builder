@@ -1,5 +1,0 @@
-RUN apk add --no-cache git make bash wget
-
-ADD preproc /bin/preproc
-
-ENTRYPOINT ["/bin/preproc"]

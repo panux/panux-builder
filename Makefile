@@ -1,4 +1,4 @@
-DIRS = preproc builders
+DIRS = builders
 
 all: $(DIRS)
 
