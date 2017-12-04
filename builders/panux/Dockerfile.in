@@ -1,0 +1,1 @@
+RUN /scripts/install.sh git make bash wget curl go musl-dev gcc ca-certificates wget pkgconf && update-ca-certificates
